@@ -1,0 +1,9 @@
+@host = http://localhost:5199
+
+POST {{host}}/auth/refresh
+Content-Type: application/json
+
+{
+  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5OTEyODQ5ZS1iOGZmLTRjOWUtOWYwZi1hODk4Y2I3MjhlY2EiLCJnaXZlbl9uYW1lIjoiQWJkdWxxYWRlciIsImZhbWlseV9uYW1lIjoiUmFtemkiLCJqdGkiOiI2YTJmMTUzMi02Mzc2LTQyOTQtYjc3Zi01ZDExY2JlZGE4NzAiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJ2aXNpdG9yIiwiZXhwIjoxNzM5MjIxMjA4LCJpc3MiOiJKb2JpZnkiLCJhdWQiOiJKb2JpZnkifQ.w2unW7pqCdkbg2VoUEqrHJGl_TAcTnQ4meWrx60qp5Y",
+  "refreshToken": "FOYdlr1ebj3qsuF0aA+7KaQG0IVbLpbKR3/0fa5C5iE="
+}

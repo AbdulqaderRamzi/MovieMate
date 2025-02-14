@@ -1,0 +1,8 @@
+﻿@host = http://localhost:5199
+
+POST {{host}}/genres
+Content-Type: application/json
+
+{
+  "name": "action"
+}

@@ -1,0 +1,10 @@
+﻿@host = http://localhost:5199
+
+PUT {{host}}/genres
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5ZGUwZjljOC05OWU3LTRmZmUtOGNmYi1hZjE5Njk3ODE5YzkiLCJnaXZlbl9uYW1lIjoiQWJkdWxxYWRlciIsImZhbWlseV9uYW1lIjoiUmFtemkiLCJqdGkiOiJiY2FiMmMzNy1kZjc4LTQyZTgtOWQxOC00NDRhMzFjZGYwNWEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJhZG1pbiIsImV4cCI6MTczODcxODIyMCwiaXNzIjoiSm9iaWZ5IiwiYXVkIjoiSm9iaWZ5In0.XcRNN2DsfJePeWLPTKb-zInj5XoJ5QmCiKthBqxMXDM
+Content-Type: application/json
+
+{
+  "id": "e360e130-5ad8-4441-8d89-da310aad12d3",
+  "name": "action"
+}

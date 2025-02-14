@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieMate.Api", "MovieMate.Api\MovieMate.Api.csproj", "{25A0A355-C4E4-4B1A-A4EF-1C53096BCB48}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Requests", "Requests\Requests.csproj", "{92BB8C92-7A8B-4531-BEE2-0D31D9026D02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieMate.Web", "MovieMate.Web\MovieMate.Web.csproj", "{8A158978-BF11-484E-88E8-A84C758C8C0E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{25A0A355-C4E4-4B1A-A4EF-1C53096BCB48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25A0A355-C4E4-4B1A-A4EF-1C53096BCB48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25A0A355-C4E4-4B1A-A4EF-1C53096BCB48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25A0A355-C4E4-4B1A-A4EF-1C53096BCB48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92BB8C92-7A8B-4531-BEE2-0D31D9026D02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92BB8C92-7A8B-4531-BEE2-0D31D9026D02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92BB8C92-7A8B-4531-BEE2-0D31D9026D02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92BB8C92-7A8B-4531-BEE2-0D31D9026D02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A158978-BF11-484E-88E8-A84C758C8C0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A158978-BF11-484E-88E8-A84C758C8C0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A158978-BF11-484E-88E8-A84C758C8C0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A158978-BF11-484E-88E8-A84C758C8C0E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
