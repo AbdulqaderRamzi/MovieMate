@@ -94,7 +94,7 @@ public class UserService : IUserService
             UserId = user.Id,
             Token = _jwtTokenGenerator.GenerateRefreshToken(),
             CreatedOnUtc = DateTime.UtcNow,
-            ExpiresOnUtc = DateTime.UtcNow.AddDays(7),
+            ExpiresOnUtc = DateTime.UtcNow.AddMinutes(2),
             JwtId = jti
         };
         await _db.RefreshTokens.AddAsync(refreshToken);
@@ -170,7 +170,7 @@ public class UserService : IUserService
         {
             UserId = userId,
             Token = _jwtTokenGenerator.GenerateRefreshToken(), CreatedOnUtc = DateTime.UtcNow,
-            ExpiresOnUtc = DateTime.UtcNow.AddMinutes(2),
+            ExpiresOnUtc = DateTime.UtcNow.AddDays(1),
             JwtId = jti
         };
          await _db.RefreshTokens.AddAsync(newRefreshToken);

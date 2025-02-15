@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using MovieMate.Web.Contracts.Identity;
+using MovieMate.Web.Exceptions;
 using MovieMate.Web.Models;
 using MovieMate.Web.Services.IServices;
 using Newtonsoft.Json;
@@ -13,16 +14,16 @@ namespace MovieMate.Web.Services;
 
 public class BaseApiClient : IBaseApiClient
 {
-    private readonly IHttpClientFactory _httpClient;
+    private readonly IHttpClientFactory _httpClientFactory;
     private readonly ITokenService _tokenService;
     private readonly IHttpContextAccessor _httpContextAccessor;
 
     public BaseApiClient(
-        IHttpClientFactory httpClient,
+        IHttpClientFactory httpClientFactory,
         ITokenService tokenService,
         IHttpContextAccessor httpContextAccessor)
     {
-        _httpClient = httpClient;
+        _httpClientFactory = httpClientFactory;
         _tokenService = tokenService;
         _httpContextAccessor = httpContextAccessor;
     }
@@ -31,7 +32,7 @@ public class BaseApiClient : IBaseApiClient
         HttpMethod httpMethod, string endpoint, TRequest? data = default,
         bool requiresAuth = true)
     {
-        var client = _httpClient.CreateClient("ApiClient");
+        var client = _httpClientFactory.CreateClient("ApiClient");
         var request = new HttpRequestMessage(httpMethod, endpoint);
         if (data is not null)
         {
@@ -51,6 +52,7 @@ public class BaseApiClient : IBaseApiClient
         var response = await client.SendAsync(request);
         if (response.StatusCode == HttpStatusCode.Unauthorized && requiresAuth)
         {
+            
             var newAccessToken = await RefreshTokenAsync();
             if (newAccessToken is not null)
             {
@@ -62,6 +64,10 @@ public class BaseApiClient : IBaseApiClient
                 }
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", newAccessToken);
                 response = await client.SendAsync(request);
+            }
+            else
+            {
+                throw new AuthException();
             }
         }
         var content = await response.Content.ReadAsStringAsync();
@@ -91,7 +97,7 @@ public class BaseApiClient : IBaseApiClient
         var refreshToken = _tokenService.GetRefreshToken();
         if (string.IsNullOrEmpty(accessToken) || string.IsNullOrEmpty(refreshToken))
             return null;
-        var client = _httpClient.CreateClient("ApiClient");
+        var client = _httpClientFactory.CreateClient("ApiClient");
         var request = new HttpRequestMessage(HttpMethod.Post, "auth/refresh")
         {
             Content = new StringContent(

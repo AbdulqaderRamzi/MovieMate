@@ -1,10 +1,15 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
+using MovieMate.Web.Exceptions;
 using MovieMate.Web.Services;
 using MovieMate.Web.Services.IServices;
 
 var builder = WebApplication.CreateBuilder(args);
 {
-    builder.Services.AddControllersWithViews();
+    builder.Services.AddControllersWithViews(options =>
+    {
+        options.Filters.Add(new AuthExceptionRedirection());
+    });
+    
     builder.Services.AddHttpContextAccessor();
     builder.Services.AddHttpClient("ApiClient", client => 
     {

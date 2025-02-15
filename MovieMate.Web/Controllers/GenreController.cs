@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MovieMate.Web.Services.IServices;
 
 namespace MovieMate.Web.Controllers;
 
+[Authorize]
 public class GenreController : Controller
 {
     private readonly IGenreService _genreService;
@@ -16,7 +18,6 @@ public class GenreController : Controller
     {
         var response = await _genreService.GetGenres();
         if (response.IsSuccess) return View(response.Data);
-        ModelState.AddModelError("", response.Error!.Title!);
-        return View();
+        return RedirectToAction("Index", "Home");
     }
 }
